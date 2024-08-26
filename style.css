@@ -275,7 +275,7 @@ a {
 #player {
     box-sizing: border-box;
     width: auto; /* 视频宽度自动调整 */
-    height: 400px; /* 高度固定 */
+    height: auto; /* 高度固定 */
     border-radius: 1rem;
     box-shadow: 0 0 1rem rgba(0, 0, 0, 0.5);
 }
