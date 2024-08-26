@@ -8,7 +8,7 @@
 /*亮色模式*/
 @media (prefers-color-scheme: light) {
   body {
-	background-image: linear-gradient( 135deg, #FFA6B7 10%, #1E2AD2 100%);
+    background-image: linear-gradient(135deg, #FFA6B7 10%, #1E2AD2 100%);
     color: #7ca29d6f;
   }
 
@@ -36,7 +36,7 @@
 /*暗色模式*/
 @media (prefers-color-scheme: dark) {
   body {
-    background-image: linear-gradient( 135deg, #3B2667 10%, #BC78EC 100%);
+    background-image: linear-gradient(135deg, #3B2667 10%, #BC78EC 100%);
 
     color: #999;
   }
@@ -184,81 +184,48 @@ a {
   border-radius: 15px;
 }
 
-/*屏幕宽度600px内生效*/
+/* 小屏设备（手机） */
 @media (max-width: 720px) {
-  .touzuobian {
-    flex: 1;
-    text-align: left;
-    margin-left: 20px;
+  header {
+    height: auto;
+    padding: 10px;
+    font-size: 16px;
   }
 
-  .touzhongjian {
-    justify-content: space-around;
-    margin: 0 10px;
-    flex: 3
+  footer {
+    font-size: 14px;
   }
 
-  .touyoubian {
-    flex: 1;
-    text-align: right;
-    margin-right: 20px;
+  .shuju {
+    height: auto;
   }
 
-  .sjyincang {
-    display: none;
-  }
-
-  .mzbj8 {
-    margin-left: 8px;
-  }
-
-  .shuxiang {
-    flex-direction: column;
-  }
-
-  .llqnh {
-    padding: 20px 5px 40px 5px;
+  a {
+    font-size: 14px;
   }
 }
 
-/*屏幕宽度601px外生效*/
+/* 大屏设备（桌面） */
 @media (min-width: 721px) {
-  .touzuobian {
-    flex: 2;
-    text-align: left;
-    margin-left: 20px;
+  header {
+    height: 60px;
+    padding: 0 20px;
+    font-size: 18px;
   }
 
-  .touzhongjian {
-    justify-content: space-around;
-    flex: 1
+  footer {
+    font-size: 16px;
   }
 
-  .touyoubian {
-    flex: 2;
-    text-align: right;
-    margin-right: 20px;
+  .shuju {
+    height: 100px;
   }
 
-  .cebian {
-    width: 200px;
-    backdrop-filter: blur(15px);
-    z-index: 1;
-    position: fixed;
-    top: 72px;
-    left: 8px;
-    bottom: 8px;
+  a {
+    font-size: 16px;
   }
-
-  .zbj64 {
-    margin-left: 208px;
-  }
-
-  .llqnh {
-    padding: 20px 65px 40px 65px;
-  }
-
 }
+
 
 
 .llqnh td,
@@ -268,14 +235,16 @@ a {
 }
 
 #main {
-    display: grid;
-    place-items: center; /* 水平和垂直居中 */
+  display: grid;
+  place-items: center;
+  /* 水平和垂直居中 */
 }
 
 #player {
-    box-sizing: border-box;
-    width: auto; /* 视频宽度自动调整 */
-    height: auto; /* 高度固定 */
-    border-radius: 1rem;
-    box-shadow: 0 0 1rem rgba(0, 0, 0, 0.5);
+  width: auto;
+  /* 视频宽度自动调整 */
+  height: 400px;
+  /* 高度固定 */
+  border-radius: 1rem;
+  box-shadow: 0 0 1rem rgba(0, 0, 0, 0.5);
 }
