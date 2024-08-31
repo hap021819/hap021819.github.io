@@ -3,271 +3,555 @@
 
 <head>
     <title>赏颜悦色</title>
-    <link rel="stylesheet" type="text/css" href="/style.css">
 </head>
 
 <body>
-    <a href="https://www.qian.blue/" style="text-align: center; color: #bf3f08;"> © 山雾秋</a>
+    <a href="http://liu13.fun" style="text-align: center; color: #2e9c79;"> © 山雾秋</a>
+
     <section id="main" style="padding: 20px;">
-        <video id="player" controls="controls" width="100%" height="400px"></video>
+        <video id="player" controls="controls"></video>
     </section>
 
     <div style="text-align: center; margin-top: 5px;">
-        <section id="buttons">
-            <button id="switch">连续: 开</button>
-            <button id="next1">换一个</button>
-            <button id="apiToggle"
-                style="background: linear-gradient(-20deg, #5a1971 0%, #915ac9 100%); color: #fdfefff6; border: none; border-radius: 45px; font-weight: bold; cursor: pointer; padding: 2px 20px;">模式</button>
-        </section>
-    </div>
-    <div style="text-align: center; position: absolute; bottom: 130px; width: 100%;">
-        <button id="copylink"
-            style="background: linear-gradient(-20deg, #5a1971 0%, #915ac9 100%); color: #fdfefff6; border: none; border-radius: 45px; font-weight: bold; cursor: pointer; padding: 20px 20px;">分享网站</button>
-        <button id="kaishiyangsheng"
-            style="background: linear-gradient(-20deg, #5a1971 0%, #915ac9 100%); color: #fdfefff6; border: none; border-radius: 45px; font-weight: bold; cursor: pointer; padding: 20px 20px;">开始养生</button>
-        <button id="codesource"
-            style="background: linear-gradient(-20deg, #5a1971 0%, #915ac9 100%); color: #fdfefff6; border: none; border-radius: 45px; font-weight: bold; cursor: pointer; padding: 20px 20px;"
-            onclick="window.location.href='https://pan.quark.cn/s/2cad49f990d9';">网站源码</button>
-    </div>
-    <div style="text-align: center; position: absolute; bottom: 60px; width: 100%;">
-        <button id="author" onclick="window.location.href='https://link3.cc/liu13';">站长</button>
-        <button id="donate" onclick="window.location.href='https://link3.cc/liu13';">打赏</button>
-        <button id="announcement">公告</button>
-    </div>
 
-    <div id="modal" class="modal">
-        <div class="modal-content">
-            <span class="close">&times;</span>
-            <br />
-            <h3>赏颜悦色</h3>
-            <p>非常简洁好看的单页代码<br />
-                <br />直接上传即可用无需数据库支持主机空间<br />
-            </p>
-            <p>大部分接口都是跳转的，保存视频链接就行，相当于是个中转站。但是这个不一样，直接采用本地存储，完全就不需要跳转，走的是稳定质量线路！在使用高峰期间，服务器资源不够分配，可能会出现卡顿缓慢，敬请理解在持续升级中~
-            </p>
+        <div style="text-align: center; margin-top: 5px;">
+            <section id="buttons">
+                <button id="switch">连续: 开</button>
+                <button id="next1">下一个</button>
+                <button id="apiToggle">换类型</button>
+            </section>
         </div>
-    </div>
-    <!访问统计>
+        <div style="text-align: center; position: absolute; bottom: 130px; width: 100%;">
+            <button id="copylink">分享网站</button>
+            <button id="kaishiyangsheng">开始养生</button>
+            <button id="codesource">网站源码</button>
+        </div>
+        <div style="text-align: center; position: absolute; bottom: 60px; width: 100%;">
+            <button id="author" onclick="window.location.href='https://link3.cc/liu13';">站长</button>
+            <button id="donate" onclick="window.location.href='https://link3.cc/liu13';">打赏</button>
+            <button id="announcement">公告</button>
+        </div>
 
-        <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-        <div class="stats-container"
-            style="display: flex; justify-content: space-between; position: fixed; bottom: 0; width: 100%; padding: 10px; box-sizing: border-box; background-color: rgba(255, 255, 255, 0); border-top: 0 solid #ddd;">
-            <div class="stat-item" style="flex: 1; text-align: center;">
-                <span id="busuanzi_value_site_uv"
-                    style="color: rgb(92, 60, 236); font-size: 14px; font-weight: bold;"><span
-                        id="busuanzi_value_site_uv"></span></span>
-                <div style="color: rgb(51, 51, 51); font-size: 11px;">访客数量</div>
-            </div>
-            <div class="stat-item" style="flex: 1; text-align: center;">
-                <span id="busuanzi_container_site_pv"
-                    style="color: rgb(192, 127, 21); font-size: 14px; font-weight: bold;"><span
-                        id="busuanzi_value_site_pv"></span></span>
-                <div style="color: rgb(51, 51, 51); font-size: 11px;">总浏览量</div>
-            </div>
-            <div class="stat-item" style="flex: 1; text-align: center;">
-                <span style="color: rgb(92, 60, 236); font-size: 14px; font-weight: bold;"><span
-                        id="days">0</span></span>
-                <div style="color: rgb(51, 51, 51); font-size: 11px;">运行天数</div>
+        <div id="modal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <br />
+                <h3>赏颜悦色</h3>
+                <p>非常简洁好看的单页代码<br />
+                    <br />直接上传即可用无需数据库支持主机空间<br />
+                </p>
+                <p>大部分接口都是跳转的，保存视频链接就行，相当于是个中转站。但是这个不一样，直接采用本地存储，完全就不需要跳转，走的是稳定质量线路！在使用高峰期间，服务器资源不够分配，可能会出现卡顿缓慢，敬请理解在持续升级中~
+                </p>
             </div>
         </div>
-        <script>
-            // 设置网站上线日期
-            var startDate = new Date('2024/8/25'); // 请替换为您网站的实际上线日期
+        <!访问统计>
 
-            // 获取当前日期
-            var currentDate = new Date();
+            <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+            <div class="stats-container"
+                style="display: flex; justify-content: space-between; position: fixed; bottom: 0; width: 100%; padding: 10px; box-sizing: border-box; background-color: rgba(255, 255, 255, 0); border-top: 0 solid #ddd;">
+                <div class="stat-item" style="flex: 1; text-align: center;">
+                    <span id="busuanzi_value_site_uv"
+                        style="color: rgb(92, 60, 236); font-size: 14px; font-weight: bold;"><span
+                            id="busuanzi_value_site_uv"></span></span>
+                    <div style="color: rgb(51, 51, 51); font-size: 11px;">访客数量</div>
+                </div>
+                <div class="stat-item" style="flex: 1; text-align: center;">
+                    <span id="busuanzi_container_site_pv"
+                        style="color: rgb(192, 127, 21); font-size: 14px; font-weight: bold;"><span
+                            id="busuanzi_value_site_pv"></span></span>
+                    <div style="color: rgb(51, 51, 51); font-size: 11px;">总浏览量</div>
+                </div>
+                <div class="stat-item" style="flex: 1; text-align: center;">
+                    <span style="color: rgb(92, 60, 236); font-size: 14px; font-weight: bold;"><span
+                            id="days">0</span></span>
+                    <div style="color: rgb(51, 51, 51); font-size: 11px;">运行天数</div>
+                </div>
+                <script>
+                    // 设置网站上线日期
+                    var startDate = new Date('2024/8/27'); // 请替换为您网站的实际上线日期
 
-            // 计算两个日期之间的天数差
-            var diffTime = Math.abs(currentDate - startDate);
-            var diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+                    // 获取当前日期
+                    var currentDate = new Date();
 
-            // 将天数显示到网页上
-            document.getElementById('days').innerHTML = diffDays;
-        </script>
+                    // 计算两个日期之间的天数差
+                    var diffTime = Math.abs(currentDate - startDate);
+                    var diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
 
-        <script>
-            (function (window, document) {
-                if (top != self) {
-                    window.top.location.replace(self.location.href);
-                }
+                    // 将天数显示到网页上
+                    document.getElementById('days').innerHTML = diffDays;
+                </script>
 
-                var get = function (id) {
-                    return document.getElementById(id);
-                }
+                <script>
+                    (function (window, document) {
+                        if (top != self) {
+                            window.top.location.replace(self.location.href);
+                        }
 
-                var bind = function (element, event, callback) {
-                    return element.addEventListener(event, callback);
-                }
+                        var get = function (id) {
+                            return document.getElementById(id);
+                        }
 
-                var auto = true;
-                var player = get('player');
-                <!-- 两个视频播放接口 -->
-                var api1 = 'https://sp.4n2.cn/?api=jkllt';
-                var api2 = 'https://tucdn.wpon.cn/api-girl/index.php?wpon=302';
-                window.onload = function () {
-                    // 设置默认 API
-                    currentAPI = api1; // 选择 api1 或 api2 作为默认 API
-                    randomm(); // 加载一个视频
-                };
+                        var bind = function (element, event, callback) {
+                            return element.addEventListener(event, callback);
+                        }
 
-                var apiToggle = get('apiToggle');
+                        var auto = true;
+                        var player = get('player');
+                        <!-- 两个视频播放接口 -->
+                        var api1 = 'https://sp.4n2.cn/?api=jkllt';
+                        var api2 = 'https://tucdn.wpon.cn/api-girl/index.php?wpon=302';
+                        window.onload = function () {
+                            // 设置默认 API
+                            currentAPI = api1; // 选择 api1 或 api2 作为默认 API
+                            randomm(); // 加载一个视频
+                        };
 
-                var randomm = function () {
-                    player.src = currentAPI + '&t=' + Math.random();
-                    player.play();
-                }
+                        var apiToggle = get('apiToggle');
 
-                var playButton = get('kaishiyangsheng');
+                        var randomm = function () {
+                            player.src = currentAPI + '&t=' + Math.random();
+                        }
 
-                bind(playButton, 'click', function () {
-                    if (player.paused) {
-                        player.play();
-                        this.innerText = '暂停';
-                    } else {
-                        player.pause();
-                        this.innerText = '播放';
+                        var playButton = get('kaishiyangsheng');
+
+                        bind(playButton, 'click', function () {
+                            if (player.paused) {
+                                player.play();
+                                this.innerText = '暂停';
+                            } else {
+                                player.pause();
+                                this.innerText = '播放';
+                            }
+                        });
+
+                        bind(get('next1'), 'click', randomm);
+
+                        bind(player, 'error', function () {
+                            randomm();
+                        });
+
+                        bind(get('switch'), 'click', function () {
+                            auto = !auto;
+                            this.innerText = '连续: ' + (auto ? '开' : '关');
+                        });
+
+                        bind(player, 'ended', function () {
+                            if (auto) randomm();
+                        });
+
+                        bind(apiToggle, 'click', function () {
+                            if (currentAPI === api1) {
+                                currentAPI = api2;
+                                apiToggle.innerText = '反差';
+                            } else {
+                                currentAPI = api1;
+                                apiToggle.innerText = '青春';
+                            }
+                            randomm();
+                        });
+
+                        var modal = get("modal");
+                        var span = modal.getElementsByClassName("close")[0];
+
+                        bind(get('announcement'), 'click', function () {
+                            modal.style.display = "block";
+                        });
+
+                        bind(span, 'click', function () {
+                            modal.style.display = "none";
+                        });
+
+                        window.onclick = function (event) {
+                            if (event.target == modal) {
+                                modal.style.display = "none";
+                            }
+                        }
+                        // 获取分享按钮元素
+                        var shareButton = get('copylink');
+
+                        // 为分享按钮绑定点击事件
+                        bind(shareButton, 'click', function () {
+                            // 创建一个临时的输入元素用于复制操作
+                            var tempInput = document.createElement('input');
+                            document.body.appendChild(tempInput);
+                            tempInput.value = window.location.href; // 获取当前页面的URL
+                            tempInput.select(); // 选择输入内容
+                            document.execCommand('copy'); // 执行复制命令
+
+                            // 清理临时元素
+                            document.body.removeChild(tempInput);
+
+                            // 提供用户反馈
+                            alert('网站链接已复制到剪贴板！');
+                        });
+
+                    })(window, document);
+                </script>
+                <script>
+                    if (window.console && window.console.log) {
+                        console.log("%cCopyright © beimo.cc ", "color:red");
+                    }  
+                </script>
+                <style>
+                    #switch,
+                    #next1,
+                    #apiToggle,
+                    #author,
+                    #donate,
+                    #announcement,
+                    #copylink,
+                    #kaishiyangsheng,
+                    #codesource {
+                        background: linear-gradient(-20deg, #5d70eb98 0%, #78bcec9c 100%);
+                        color: #fdfefff6;
+                        line-height: 40px;
+                        text-align: center;
+                        width: 80px;
+                        border: none;
+                        margin: 0 6px;
+                        border-radius: 45px;
+                        font-weight: bold;
+                        cursor: pointer;
                     }
-                });
 
-                bind(get('next1'), 'click', randomm);
-
-                bind(player, 'error', function () {
-                    randomm();
-                });
-
-                bind(get('switch'), 'click', function () {
-                    auto = !auto;
-                    this.innerText = '连续: ' + (auto ? '开' : '关');
-                });
-
-                bind(player, 'ended', function () {
-                    if (auto) randomm();
-                });
-
-                bind(apiToggle, 'click', function () {
-                    if (currentAPI === api1) {
-                        currentAPI = api2;
-                        apiToggle.innerText = '反差';
-                    } else {
-                        currentAPI = api1;
-                        apiToggle.innerText = '青春';
+                    .modal {
+                        display: none;
+                        position: fixed;
+                        z-index: 9999;
+                        left: 0;
+                        top: 0;
+                        width: 100%;
+                        height: 100%;
+                        overflow: auto;
+                        background-color: rgba(1, 0, 0, 0.5);
                     }
-                    randomm();
-                });
 
-                var modal = get("modal");
-                var span = modal.getElementsByClassName("close")[0];
-
-                bind(get('announcement'), 'click', function () {
-                    modal.style.display = "block";
-                });
-
-                bind(span, 'click', function () {
-                    modal.style.display = "none";
-                });
-
-                window.onclick = function (event) {
-                    if (event.target == modal) {
-                        modal.style.display = "none";
+                    .modal-content {
+                        background-color: #fefefe;
+                        margin: 15% auto;
+                        padding: 20px;
+                        border: 1px solid #777ec3;
+                        width: 80%;
+                        max-width: 600px;
+                        border-radius: 10px;
                     }
-                }
-                // 获取分享按钮元素
-                var shareButton = get('copylink');
 
-                // 为分享按钮绑定点击事件
-                bind(shareButton, 'click', function () {
-                    // 创建一个临时的输入元素用于复制操作
-                    var tempInput = document.createElement('input');
-                    document.body.appendChild(tempInput);
-                    tempInput.value = window.location.href; // 获取当前页面的URL
-                    tempInput.select(); // 选择输入内容
-                    document.execCommand('copy'); // 执行复制命令
+                    .close {
+                        color: #777ec3;
+                        float: right;
+                        font-size: 28px;
+                        font-weight: bold;
+                        cursor: pointer;
+                    }
 
-                    // 清理临时元素
-                    document.body.removeChild(tempInput);
+                    .close:hover,
+                    .close:focus {
+                        color: black;
+                        text-decoration: none;
+                        cursor: pointer;
+                    }
 
-                    // 提供用户反馈
-                    alert('网站链接已复制到剪贴板！');
-                });
+                    body,
+                    html {
+                        margin: 0;
+                        padding: 0;
+                        height: 100%;
+                        overflow: hidden;
+                    }
 
-            })(window, document);
-        </script>
-        <script>
-            if (window.console && window.console.log) {
-                console.log("%cCopyright © beimo.cc ", "color:red");
-            }  
-        </script>
-        <style>
-            #switch,
-            #next1,
-            #apiToggle,
-            #author,
-            #donate,
-            #announcement {
-                background: linear-gradient(-20deg, #5a1971 0%, #915ac9 100%);
-                color: #fdfefff6;
-                line-height: 40px;
-                text-align: center;
-                width: 80px;
-                border: none;
-                margin: 0 6px;
-                border-radius: 45px;
-                font-weight: bold;
-                cursor: pointer;
-            }
+                    .custom-link {
+                        color: #0000FF;
+                        /* 蓝色 */
+                        text-decoration: none;
+                        /* 可选：去除下划线 */
+                    }
 
-            .modal {
-                display: none;
-                position: fixed;
-                z-index: 9999;
-                left: 0;
-                top: 0;
-                width: 100%;
-                height: 100%;
-                overflow: auto;
-                background-color: rgba(0, 0, 0, 0.838);
-            }
 
-            .modal-content {
-                background-color: #fefefe;
-                margin: 15% auto;
-                padding: 20px;
-                border: 1px solid #888;
-                width: 80%;
-                max-width: 600px;
-                border-radius: 10px;
-            }
+                    * {
+                        font-family: "Helvetica Neue", "PingFang SC", "Source Han Sans",
+                            "Microsoft YaHei UI", "Microsoft YaHei", "Roboto Mono", monospace, Arial,
+                            sans-serif;
+                    }
 
-            .close {
-                color: #777ec3;
-                float: right;
-                font-size: 28px;
-                font-weight: bold;
-                cursor: pointer;
-            }
 
-            .close:hover,
-            .close:focus {
-                color: black;
-                text-decoration: none;
-                cursor: pointer;
-            }
+                    /*亮色模式*/
+                    @media (prefers-color-scheme: light) {
+                        body {
+                            background-image: linear-gradient(135deg, #5a2eb3bd 10%, #a952e8 100%);
+                            color: #7ca29d6f;
+                        }
 
-            body,
-            html {
-                margin: 0;
-                padding: 0;
-                height: 100%;
-                overflow: hidden;
-            }
+                        .beijing {
+                            background-color: #f3feff;
+                        }
 
-            .custom-link {
-                color: #0000FF;
-                /* 蓝色 */
-                text-decoration: none;
-                /* 可选：去除下划线 */
-            }
-        </style>
+                        .touming {
+                            background-color: #ffffff00;
+                        }
+
+                        a {
+                            color: #000
+                        }
+
+                        .shuju p {
+                            color: dimgrey;
+                        }
+
+                        .shuju b {
+                            color: #444;
+                        }
+                    }
+
+                    /*暗色模式*/
+                    @media (prefers-color-scheme: dark) {
+                        body {
+                            background-image: linear-gradient(135deg, #3B2667 10%, #BC78EC 100%);
+
+                            color: #999;
+                        }
+
+                        .beijing {
+                            background-color: #202b20;
+                        }
+
+                        .touming {
+                            background-color: #00000000;
+                        }
+
+                        a {
+                            color: #aaa
+                        }
+
+                        .shuju p {
+                            color: #999;
+                        }
+
+                        .shuju b {
+                            color: #aaa;
+                        }
+                    }
+
+                    body {
+                        margin: 0px;
+                        background-size: 800px 800px;
+                    }
+
+                    header {
+                        height: 60px;
+                        position: fixed;
+                        top: 4px;
+                        right: 0px;
+                        left: 0px;
+                        z-index: 2;
+                        margin-right: 8px;
+                        margin-left: 8px;
+                        backdrop-filter: blur(15px);
+                        justify-content: space-between;
+                        align-items: center;
+                        font-size: 18px;
+                        font-weight: bold;
+                    }
+
+                    header a {
+                        text-shadow: .8px .8px 0px #999;
+                    }
+
+                    footer {
+                        display: flex;
+                        flex: 1;
+                        flex-direction: column;
+                        justify-content: flex-end;
+                    }
+
+                    .banquan {
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                        text-align: center;
+                        font-size: 12px;
+                        color: #666;
+                        background-color: rgba(0, 0, 0, 0.1);
+                        margin-top: 10px;
+                        padding: 15px 5px 10px 5px;
+                        border-radius: 15px;
+                    }
+
+                    footer a {
+                        color: #666;
+                        border-bottom: 1px dashed;
+                    }
+
+                    a {
+                        text-decoration: none;
+                    }
+
+                    .flex {
+                        display: flex;
+                    }
+
+                    .yinying {
+                        box-shadow: rgb(0 0 0 / 20%) 0px 2px 1px -1px,
+                            rgb(0 0 0 / 14%) 0px 1px 1px 0px, rgb(0 0 0 / 12%) 0px 1px 3px 0px;
+                    }
+
+                    .flex1 {
+                        flex: 1;
+                    }
+
+                    .column {
+                        flex-direction: column;
+                    }
+
+                    .row {
+                        flex-direction: row;
+                    }
+
+                    .daohang {
+
+                        line-height: 2;
+                        font-size: 15px;
+                        color: #666;
+                    }
+
+                    .shuju {
+                        height: 100px;
+                        align-items: center;
+                        justify-content: center;
+                    }
+
+                    .shuju p {
+                        margin: 5px;
+                        font-size: 12px;
+                    }
+
+                    .shuju b {
+                        margin: 0 20px;
+                        font-size: 14px;
+                    }
+
+                    .qgdt::-webkit-scrollbar {
+                        display: none;
+                    }
+
+                    .bj8 {
+                        margin: 8px;
+                    }
+
+                    .zbj8 {
+                        margin-left: 8px;
+                    }
+
+                    .ybj8 {
+                        margin-right: 8px;
+                    }
+
+                    .sbj8 {
+                        margin-top: 8px;
+                    }
+
+                    .yuanjiao {
+                        border-radius: 15px;
+                    }
+
+                    /*屏幕宽度600px内生效*/
+                    @media (max-width: 720px) {
+                        .touzuobian {
+                            flex: 1;
+                            text-align: left;
+                            margin-left: 20px;
+                        }
+
+                        .touzhongjian {
+                            justify-content: space-around;
+                            margin: 0 10px;
+                            flex: 3
+                        }
+
+                        .touyoubian {
+                            flex: 1;
+                            text-align: right;
+                            margin-right: 20px;
+                        }
+
+                        .sjyincang {
+                            display: none;
+                        }
+
+                        .mzbj8 {
+                            margin-left: 8px;
+                        }
+
+                        .shuxiang {
+                            flex-direction: column;
+                        }
+
+                        .llqnh {
+                            padding: 20px 5px 40px 5px;
+                        }
+                    }
+
+                    /*屏幕宽度601px外生效*/
+                    @media (min-width: 721px) {
+                        .touzuobian {
+                            flex: 2;
+                            text-align: left;
+                            margin-left: 20px;
+                        }
+
+                        .touzhongjian {
+                            justify-content: space-around;
+                            flex: 1
+                        }
+
+                        .touyoubian {
+                            flex: 2;
+                            text-align: right;
+                            margin-right: 20px;
+                        }
+
+                        .cebian {
+                            width: 200px;
+                            backdrop-filter: blur(15px);
+                            z-index: 1;
+                            position: fixed;
+                            top: 72px;
+                            left: 8px;
+                            bottom: 8px;
+                        }
+
+                        .zbj64 {
+                            margin-left: 208px;
+                        }
+
+                        .llqnh {
+                            padding: 20px 65px 40px 65px;
+                        }
+
+                    }
+
+
+                    .llqnh td,
+                    .llqnh th {
+                        border-bottom: 1px solid #a1a1a1;
+                        padding: 10px;
+                    }
+
+                    #main {
+                        display: grid;
+                        place-items: center;
+                        /* 水平和垂直居中 */
+                    }
+
+                    #player {
+                        box-sizing: border-box;
+                        width: auto;
+                        /* 视频宽度自动调整 */
+                        height: 400px;
+                        /* 高度固定 */
+                        border-radius: 1rem;
+                        box-shadow: 0 0 1rem rgba(53, 169, 204, 0.5);
+                    }
+                </style>
 </body>
 
 </html>
