@@ -139,7 +139,7 @@
                         bind(player, 'ended', function () {
                             if (auto) randomm();
                         });
-
+                        player.play();
                         bind(apiToggle, 'click', function () {
                             if (currentAPI === api1) {
                                 currentAPI = api2;
