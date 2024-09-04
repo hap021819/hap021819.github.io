@@ -98,7 +98,7 @@
                         var auto = true;
                         var player = get('player');
                         <!-- 两个视频播放接口 -->
-                        var api1 = 'https://sp.4n2.cn/?api=jkllt';
+                        var api1 = 'http://api.yujn.cn/api/wmsc.php?type=video';
                         var api2 = 'https://tucdn.wpon.cn/api-girl/index.php?wpon=302';
                         window.onload = function () {
                             // 设置默认 API
@@ -451,82 +451,6 @@
 
                     .yuanjiao {
                         border-radius: 15px;
-                    }
-
-                    /*屏幕宽度600px内生效*/
-                    @media (max-width: 720px) {
-                        .touzuobian {
-                            flex: 1;
-                            text-align: left;
-                            margin-left: 20px;
-                        }
-
-                        .touzhongjian {
-                            justify-content: space-around;
-                            margin: 0 10px;
-                            flex: 3
-                        }
-
-                        .touyoubian {
-                            flex: 1;
-                            text-align: right;
-                            margin-right: 20px;
-                        }
-
-                        .sjyincang {
-                            display: none;
-                        }
-
-                        .mzbj8 {
-                            margin-left: 8px;
-                        }
-
-                        .shuxiang {
-                            flex-direction: column;
-                        }
-
-                        .llqnh {
-                            padding: 20px 5px 40px 5px;
-                        }
-                    }
-
-                    /*屏幕宽度601px外生效*/
-                    @media (min-width: 721px) {
-                        .touzuobian {
-                            flex: 2;
-                            text-align: left;
-                            margin-left: 20px;
-                        }
-
-                        .touzhongjian {
-                            justify-content: space-around;
-                            flex: 1
-                        }
-
-                        .touyoubian {
-                            flex: 2;
-                            text-align: right;
-                            margin-right: 20px;
-                        }
-
-                        .cebian {
-                            width: 200px;
-                            backdrop-filter: blur(15px);
-                            z-index: 1;
-                            position: fixed;
-                            top: 72px;
-                            left: 8px;
-                            bottom: 8px;
-                        }
-
-                        .zbj64 {
-                            margin-left: 208px;
-                        }
-
-                        .llqnh {
-                            padding: 20px 65px 40px 65px;
-                        }
-
                     }
 
 
