@@ -1,4 +1,4 @@
-<!--声明：该代码纯免费分享，如果你是购买的，请联系购买者退款，作者山雾秋，QQ180782569-->
+<!--声明：该代码纯免费分享，如果你是购买的，请联系售卖者退款，作者山雾秋，QQ180782569-->
 <!DOCTYPE html>
 <html lang="zh-CN">
 
@@ -19,43 +19,24 @@
     <style>
         body {
             /* 设置多重背景 */
-            background:
-                url('https://s3.bmp.ovh/imgs/2024/09/04/ca9f70d2a95505a1.jpg'),
-                url('https://s3.bmp.ovh/imgs/2024/09/04/112e647b114e0167.jpg'),
-                url('https://s3.bmp.ovh/imgs/2024/09/04/9b87b7d8ee4f829a.jpg'),
-                url('https://s3.bmp.ovh/imgs/2024/09/04/11db57083f2e1e7d.jpg'),
-		url('https://s3.bmp.ovh/imgs/2024/09/04/6e130e6026232eda.jpg'),
             background-size: cover;
             background-attachment: fixed;
             background-position: center;
-            background-color: black;
-            /* 设置背景颜色为黑色 */
+            background-image: url('bg1.jpg');
         }
 
         /* 定义背景图片的样式 */
         .bg-image-1 {
-            background-image: url();
+            background-image: url('bg1.jpg');
         }
 
         .bg-image-2 {
-            background-image: url();
+            background-image: linear-gradient(to right, rgba(33, 18, 109, 0.814), rgba(6, 47, 65, 0.605));
         }
 
         .bg-image-3 {
-            background-image: url();
+            background-image: linear-gradient(to right, rgb(126, 110, 198), rgba(45, 168, 220, 0.979));
         }
-
-        .bg-image-4 {
-            background-image: url();
-        }
-		.bg-image-5 {
-            background-color: black
-        }
-		.bg-image-6 {
-            background-image:  linear-gradient(to right, rgb(126, 110, 198), rgba(45, 168, 220, 0.979));
-        }
-	.bg-image-7 {
-            background-image: url();
 
         .mdui-card {
             background: rgba(255, 255, 255, 0.1);
@@ -142,7 +123,7 @@
             padding: 10px 20px;
             cursor: pointer;
         }
-		
+
         /* 定义基础动画效果 */
         .card-move {
             transition-property: transform, opacity;
@@ -220,8 +201,7 @@
             }
         }
 
-		#background-tip,
-        #next-song-btn {
+        #background-tip {
             position: fixed;
             left: 50%;
             bottom: 10px;
@@ -234,15 +214,6 @@
             text-align: center;
             z-index: 1000;
             /* 确保在顶部 */
-        }
-		        /* 按钮样式 */
-        #next-song-btn {
-            display: none;
-        }
-
-        #background-tip:hover,
-        #next-song-btn:hover {
-            background-color: #e65b5b;
         }
 
         @keyframes rotate {
@@ -330,7 +301,8 @@
             position: absolute;
             bottom: 10px;
             /* 距离父元素底部10px */
-            left: 50px;
+            left: calc(50% - 120px - 30px / 2);
+            /* 计算左侧距离 */
             /* 距离父元素左侧50px */
             border-radius: 50%;
             overflow: hidden;
@@ -374,7 +346,8 @@
             position: absolute;
             bottom: 10px;
             /* 距离父元素底部10px */
-            right: 50px;
+            right: calc(50% - 120px - 30px / 2);
+            /* 计算右侧距离 */
             /* 距离父元素左侧50px */
             border-radius: 50%;
             overflow: hidden;
@@ -455,7 +428,7 @@
         }
 
         .text-to-show {
-            opacity: 1;
+            opacity: 0;
             visibility: hidden;
             transition: opacity 2s, visibility 2s;
             /* 过渡效果设置为2秒 */
@@ -509,6 +482,70 @@
             white-space: normal;
             /* 默认行为，允许空格和换行符进行换行 */
         }
+
+        /* 歌单弹出样式（从底部弹出） */
+        .playlist-popup {
+            position: fixed;
+            /* 设置为固定定位 */
+            bottom: -50%;
+            /* 初始位置隐藏在底部 */
+            left: 50%;
+            /* 水平居中 */
+            transform: translateX(-50%);
+            /* 调整水平居中 */
+            width: 80%;
+            /* 根据需要调整宽度 */
+            max-width: 400px;
+            /* 歌单窗口的最大宽度 */
+            background-color: rgba(36, 123, 181, 0.5);
+            /* 深色半透明背景 */
+            color: white;
+            padding: 20px;
+            box-shadow: 0 4px 15px rgba(92, 16, 138, 0.3);
+            /* 增加阴影效果 */
+            border-radius: 10px;
+            /* 圆角效果 */
+            transition: bottom 0.5s ease, opacity 0.3s ease;
+            /* 底部位置和淡入淡出效果 */
+            z-index: 1000;
+            /* 确保在顶部显示 */
+            opacity: 0;
+            /* 初始透明度 */
+        }
+
+        /* 显示时的样式 */
+        .show-playlist {
+            bottom: 10%;
+            /* 从底部弹出到可见位置 */
+            opacity: 1;
+            /* 完全不透明 */
+        }
+
+        /* 歌单项样式 */
+        .playlist-item {
+            color: #79e4ffec;
+            cursor: pointer;
+            padding: 10px 0;
+            text-align: center;
+            margin: 5px 0;
+            transition: transform 0.2s, color 0.2s;
+            /* 鼠标悬停和点击效果 */
+        }
+
+        /* 鼠标悬停效果 */
+        .playlist-item:hover {
+            color: #ffffff;
+            transform: scale(1.05);
+            /* 放大效果 */
+        }
+
+        /* 点击效果 */
+        .playlist-item:active {
+            transform: scale(0.95);
+            /* 点击时缩小效果 */
+            color: #ffcc00;
+            /* 点击时改变颜色 */
+        }
     </style>
 </head>
 
@@ -524,9 +561,14 @@
     </div>
     <div id="text-to-show" class="text-to-show">
         <p>这里有你想知道的一切<br>
-		   需要点击头像才可以查看
-		</p>
+            需要点击头像才可以查看
+        </p>
     </div>
+    <!-- 歌单弹出列表 -->
+    <div id="playlist" class="playlist-popup">
+        <!-- 动态生成的歌单列表将在此处插入 -->
+    </div>
+
     <div id="title-card" class="mdui-container mdui-m-t-2">
         <div class="mdui-row">
             <div class="mdui-col-md-6 mdui-col-offset-md-3 mdui-m-b-2">
@@ -551,7 +593,7 @@
                         💠<!--这里可以加一行字-->
                     </div>
                     <div id="avatar" class="avatar-container">
-                        <img src="https://s3.bmp.ovh/imgs/2024/08/31/1e157341b7c62420.jpg" alt="头像"
+                        <img src="https://s3.bmp.ovh/imgs/2024/09/08/1e157341b7c62420.jpg" alt="头像"
                             class="gradient-border-shadow avatar">
                     </div>
                     <audio id="myAudio" src="music.mp3"></audio>
@@ -560,56 +602,55 @@
             <div class="mdui-col-md-6 mdui-col-offset-md-3">
                 <div class="mdui-row">
                     <div class="mdui-col-xs-12 mdui-col-sm-6 mdui-m-b-2">
-                        
-                            <div class="mdui-card clickable">
-								<a href="https://hill.rth5.com" target="_blank" class="remove-underline">
+
+                        <div class="mdui-card clickable">
+                            <a href="http://hill.liu13.fun" target="_blank" class="remove-underline">
                                 <div class="mdui-card-header">
                                     <div class="mdui-card-header-title" style="color:#fc7676 ;">
                                         <b>版式壹</b>
                                     </div>
                                 </div>
 
-                            </div>
+                        </div>
                     </div>
                     <div class="mdui-col-xs-12 mdui-col-sm-6 mdui-m-b-2">
-                            <div class="mdui-card clickable">
-								<a href="https://fog.rth5.com" target="_blank" class="remove-underline">
+                        <div class="mdui-card clickable">
+                            <a href="http://mist.liu13.fun" target="_blank" class="remove-underline">
                                 <div class="mdui-card-header">
                                     <div class="mdui-card-header-title" style="color:#ebd086;">
                                         <b>版式贰</b>
                                     </div>
                                 </div>
-                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
             <div class="mdui-col-md-6 mdui-col-offset-md-3">
                 <div class="mdui-row">
                     <div class="mdui-col-xs-12 mdui-col-sm-6 mdui-m-b-2">
-                            <div class="mdui-card clickable">
-								<a href="https://fall.rth5.com"target="_blank" class="remove-underline">
+                        <div class="mdui-card clickable">
+                            <a href="http://ss.liu13.fun" target="_blank" class="remove-underline">
                                 <div class="mdui-card-header">
                                     <div class="mdui-card-header-title" style="color:#7dc1f4;">
-                                        <b>版式叁</b>
+                                        <b>背单词</b>
                                     </div>
                                 </div>
-                            </div>
+                        </div>
                     </div>
                     <div class="mdui-col-xs-12 mdui-col-sm-6 mdui-m-b-2">
-                            <div class="mdui-card clickable">
-								<a href="http://mnv.liu13.fun/" target="_blank" class="remove-underline">
+                        <div class="mdui-card clickable">
+                            <a href="http://mnv.liu13.fun/" target="_blank" class="remove-underline">
                                 <div class="mdui-card-header">
                                     <div class="mdui-card-header-title" style="color: #6eb498;">
                                         <b>赏颜阁</b>
                                     </div>
                                 </div>
-                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-
     <script>
         // 点击效果实现的js代码
         document.addEventListener('click', function (event) {
@@ -660,7 +701,7 @@
 
         document.addEventListener('DOMContentLoaded', function () {
             function fetchPoem() {
-                fetch('http://www.wudada.online/Api/ScSj')
+                fetch('https://www.wudada.online/Api/ScSj')
                     .then(response => {
                         if (!response.ok) {
                             throw new Error('Network response was not ok');
@@ -735,9 +776,6 @@
             'bg-image-1',
             'bg-image-2',
             'bg-image-3',
-            'bg-image-4',
-            'bg-image-5',
-			'bg-image-6',
         ];
         var current = 0; // 当前背景图片的索引
 
@@ -763,17 +801,13 @@
         document.addEventListener('keydown', function (event) {
             if (event.keyCode === 123) { // F12的键码是123
                 event.preventDefault();
-                // 这里可以添加一些提示，alert('开发者工具已被禁用');
+                alert('已被禁用');
             }
         });
         document.addEventListener('contextmenu', function (event) {
             event.preventDefault();
         });
 
-        //
-        document.addEventListener('contextmenu', function (event) {
-            event.preventDefault();
-        });
         // 获取头像元素和音频元素
         const avatar = document.querySelector('.avatar');
         const audio = document.getElementById('myAudio');
@@ -822,152 +856,240 @@
                 }
             }
 
-            // 给gecizhanshi按钮添加点击事件监听器
-            var gecizhanshiButton = document.getElementById('gecizhanshi');
-            gecizhanshiButton.addEventListener('click', moveCards);
-
             // 给guanyuzuozhe按钮添加点击事件监听器
             var guanyuzuozheButton = document.getElementById('guanyuzuozhe');
             guanyuzuozheButton.addEventListener('click', moveCards);
         });
 
         //不同文本显示
-document.addEventListener('DOMContentLoaded', function () {
-    const avatar = document.querySelector('.avatar');
-    const audio = new Audio('music.mp3'); // 假设音乐文件名为music.mp3
-    const textToShowElement = document.getElementById('text-to-show');
-    const gecizhanshiButton = document.getElementById('gecizhanshi');
-    const guanyuzuozheButton = document.getElementById('guanyuzuozhe');
-    let lyrics = [];
-    let isMoving = false;
-    let isRotating = false;
-    let isShowingPlaylist = false; // 用于跟踪歌单列表是否在显示
+        document.addEventListener('DOMContentLoaded', function () {
+            const avatar = document.querySelector('.avatar');
+            const audio = new Audio('music.mp3'); // 假设音乐文件名为music.mp3
+            const textToShowElement = document.getElementById('text-to-show');
+            const gecizhanshiButton = document.getElementById('gecizhanshi');
+            const guanyuzuozheButton = document.getElementById('guanyuzuozhe');
+            let lyrics = [];
+            let isMoving = false;
+            let isRotating = false;
+            let isShowingPlaylist = false; // 用于跟踪歌单列表是否在显示
 
-    const aboutText = "这里是山雾秋的作品发布页<br>基于北漠网络(https://beimowl.com)<br>免费分享的源代码美化修改，共4版<br>源代码加180782569免费分享<br>可自行更改配色和背景图";
-    const playlistText = "歌单列表:<br>1. 歌曲A<br>2. 歌曲B<br>3. 歌曲C";
-    const hintText = "点一下头像会有新玩法"; // 新增提示文本
+            const aboutText = "这里是山雾秋的作品发布页<br>基于北漠网络(https://beimowl.com)<br>免费分享的源代码美化修改，共4版<br>源代码加180782569免费分享<br>可自行更改配色和背景图";
+            const hintText = "点一下头像会有新玩法"; // 新增提示文本
 
-    // 初始化加载歌词
-    loadLyrics();
+            // 初始化加载歌词
+            loadLyrics();
 
-    function loadLyrics() {
-        fetch('music.lrc')
-            .then(response => response.text())
-            .then(data => {
-                lyrics = parseLyrics(data);
-            })
-            .catch(error => console.error('Error loading the LRC file:', error));
-    }
+            function loadLyrics() {
+                fetch('music.lrc') // 假设歌词文件名为music.lrc
+                    .then(response => response.text())
+                    .then(data => {
+                        lyrics = parseLyrics(data);
+                    })
+                    .catch(error => console.error('Error loading the LRC file:', error));
+            }
 
-    function parseLyrics(data) {
-        const lines = data.split('\n');
-        let parsedLyrics = [];
-        lines.forEach(line => {
-            const match = line.match(/^\[\d{2}:\d{2}.\d{2,}\](.*)/);
-            if (match) {
-                parsedLyrics.push({
-                    time: match[0].substring(1, match[0].length - 1),
-                    content: match[1]
+            function parseLyrics(data) {
+                const lines = data.split('\n');
+                let parsedLyrics = [];
+                lines.forEach(line => {
+                    const match = line.match(/^\[(\d{2}):(\d{2})\.(\d{2,3})\](.*)/); // 精确匹配到毫秒
+                    if (match) {
+                        const minutes = parseInt(match[1], 10);
+                        const seconds = parseInt(match[2], 10);
+                        const milliseconds = parseInt(match[3], 10) / 1000;
+                        const time = minutes * 60 + seconds + milliseconds;
+                        parsedLyrics.push({
+                            time: time, // 解析后的时间为秒的小数形式
+                            content: match[4] // 歌词内容
+                        });
+                    }
+                });
+                return parsedLyrics;
+            }
+
+            function updateLyricsDisplay(currentTime) {
+                // 查找当前时间应显示的歌词索引
+                for (let i = 0; i < lyrics.length; i++) {
+                    if (lyrics[i].time > currentTime) {
+                        currentLyricIndex = i - 1;
+                        break;
+                    }
+                }
+
+                // 显示三行歌词，中间一行为当前播放的歌词
+                const visibleLyrics = lyrics.slice(Math.max(0, currentLyricIndex - 1), currentLyricIndex + 2);
+
+                textToShowElement.innerHTML = visibleLyrics.map((lyric, index) => {
+                    const isCurrentLyric = index === 1; // 中间一行是当前播放的歌词
+                    return `<p style="font-size: ${isCurrentLyric ? '1.2em' : '1em'}; color: ${isCurrentLyric ? '#79e4ffec' : '#fff'};">${lyric.content}</p>`;
+                }).join('');
+
+                // 可选：通过调整容器的滚动位置实现平滑滚动
+                textToShowElement.scrollTop = textToShowElement.scrollHeight;
+            }
+
+            function moveCards() {
+                isMoving = !isMoving;
+                const cards = document.querySelectorAll('.mdui-col-xs-12.mdui-col-sm-6 .mdui-card');
+
+                cards.forEach(function (card, index) {
+                    card.classList.remove('card-visible', 'card-left', 'card-right', 'card-move');
+
+                    if (isMoving) {
+                        if (index % 2 === 0) {
+                            card.classList.add('card-left');
+                        } else {
+                            card.classList.add('card-right');
+                        }
+                    } else {
+                        card.classList.add('card-visible');
+                    }
+
+                    card.classList.add('card-move');
                 });
             }
-        });
-        return parsedLyrics;
-    }
 
-    function parseTime(timeString) {
-        const parts = timeString.split(':');
-        return parseInt(parts[0], 10) * 60 + parseFloat(parts[1]);
-    }
+            // 点击头像事件处理
+            avatar.addEventListener('click', function () {
+                if (audio.paused) {
+                    audio.play();
+                    audio.addEventListener('timeupdate', updateLyrics);
+                    textToShowElement.style.display = 'block';  // 显示歌词区域
+                    avatar.style.animation = 'rotate 10s infinite linear'; // 开始旋转
+                    isRotating = true;
 
-    function updateLyricsDisplay(currentTime) {
-        if (!isShowingPlaylist) { // 只有在没有显示歌单列表时才显示歌词
-            const currentLyrics = lyrics.filter(lyric => parseTime(lyric.time) <= currentTime);
-            const visibleLyrics = currentLyrics.slice(-3);
-
-            textToShowElement.innerHTML = visibleLyrics.map((lyric, index) => {
-                const isCurrentLyric = index === visibleLyrics.length - 1; // 最后一条歌词为当前播放的
-                return `<p style="font-size: ${isCurrentLyric ? '1.3em' : '1em'}; color: ${isCurrentLyric ? '#ff0' : '#fff'};">${lyric.content}</p>`;
-            }).join('');
-        }
-    }
-
-    function moveCards() {
-        isMoving = !isMoving;
-        const cards = document.querySelectorAll('.mdui-col-xs-12.mdui-col-sm-6 .mdui-card');
-
-        cards.forEach(function (card, index) {
-            card.classList.remove('card-visible', 'card-left', 'card-right', 'card-move');
-
-            if (isMoving) {
-                if (index % 2 === 0) {
-                    card.classList.add('card-left');
+                    // 切换按钮文本
+                    gecizhanshiButton.innerText = "歌词"; // 恢复“歌词展示”按钮
+                    guanyuzuozheButton.innerText = "歌单"; // 切换“关于作者”按钮为“歌单列表”
                 } else {
-                    card.classList.add('card-right');
+                    audio.pause();
+                    audio.removeEventListener('timeupdate', updateLyrics);
+                    textToShowElement.innerHTML = ''; // 清空歌词内容
+                    textToShowElement.style.display = 'none'; // 隐藏歌词区域
+                    avatar.style.animation = 'none'; // 停止旋转
+                    isRotating = false;
                 }
-            } else {
-                card.classList.add('card-visible');
+            });
+            function updateLyrics() {
+                updateLyricsDisplay(audio.currentTime);
             }
 
-            card.classList.add('card-move');
+            // 歌词展示按钮/玩法按钮
+            gecizhanshiButton.addEventListener('click', function () {
+                moveCards();
+                if (!audio.paused) {
+                    isShowingPlaylist = true; // 标记为正在显示歌单列表
+                    textToShowElement.innerHTML = aboutText; // 显示歌词
+                    textToShowElement.style.display = 'block';
+                } else {
+                    textToShowElement.innerHTML = aboutText; // 显示
+                    textToShowElement.style.display = 'block';
+                    gecizhanshiButton.innerText = "玩法"; // 恢复按钮为“玩法”
+                }
+            });
+
+            // 关于作者按钮（切换为歌单列表按钮）
+            guanyuzuozheButton.addEventListener('click', function () {
+                moveCards();
+                if (!audio.paused) {
+                    isShowingPlaylist = true; // 标记为正在显示歌单列表
+                    textToShowElement.innerHTML = playlistText; // 显示歌单列表
+                } else {
+                    textToShowElement.innerHTML = aboutText; // 显示关于作者信息
+                    guanyuzuozheButton.innerText = "你好"; // 恢复按钮为“关于作者”
+                }
+            });
+
+
+            //歌单列表
+            const songs = [
+                { title: "歌曲A", file: "songA.mp3", lyrics: "歌词A..." },
+                { title: "歌曲B", file: "songB.mp3", lyrics: "歌词B..." },
+                { title: "歌曲C", file: "songC.mp3", lyrics: "歌词C..." }
+            ];
+
+            const playlistElement = document.getElementById('playlist'); // 歌单显示区域
+            // 动态生成歌单HTML，使用 data-file 存储歌曲路径
+            function generatePlaylistHTML() {
+                return songs.map((song, index) => `<p class="playlist-item" data-file="${song.file}" data-lyrics="${song.lyrics}">${song.title}</p>`).join('');
+            }
+
+            // 设置歌单内容
+            playlistElement.innerHTML = generatePlaylistHTML();
+
+            // 点击歌单按钮时显示或隐藏歌单列表（仅当音乐播放并且按钮文字是“歌单”时）
+            guanyuzuozheButton.addEventListener('click', function () {
+                if (!audio.paused && guanyuzuozheButton.innerText === "歌单") {  // 如果音乐正在播放且按钮是“歌单”
+                    playlistElement.classList.toggle('show-playlist'); // 切换弹出状态
+                }
+            });
+
+            // 点击歌单中的歌曲名时切换歌曲
+            playlistElement.addEventListener('click', function (event) {
+                if (event.target.classList.contains('playlist-item')) {
+                    const songFile = event.target.getAttribute('data-file'); // 获取歌曲文件路径
+                    const songLyrics = event.target.getAttribute('data-lyrics'); // 获取歌曲歌词
+                    audio.src = songFile; // 切换歌曲
+                    audio.play(); // 播放音乐
+                    avatar.style.animation = 'rotate 10s infinite linear'; // 开始旋转动
+                }
+
+            });
+
+            // 监听音频播放状态，显示当前播放的歌词
+            audio.addEventListener('play', function () {
+                guanyuzuozheButton.innerText = "歌单"; // 播放时将按钮文字设置为“歌单”
+            });
+
+            audio.addEventListener('pause', function () {
+                textToShowElement.style.display = 'none'; // 隐藏歌词区域
+                playlistElement.classList.remove('show-playlist'); // 隐藏歌单
+                guanyuzuozheButton.innerText = "关于"; // 暂停时将按钮文字恢复为“关于”
+            });
+            // 监听音频播放状态，显示当前播放的歌词
+            audio.addEventListener('play', function () {
+                gecizhanshiButton.innerText = "歌词"; // 播放时将按钮文字设置为“歌词”
+            });
+
+            audio.addEventListener('pause', function () {
+                textToShowElement.style.display = 'none'; // 隐藏歌词区域
+                playlistElement.classList.remove('show-playlist'); // 隐藏歌单
+                gecizhanshiButton.innerText = "玩法"; // 暂停时将按钮文字恢复为“玩法”
+            });
+
+            // 添加点击事件监听器来关闭歌单窗口
+            document.addEventListener('click', function (event) {
+                // 如果点击目标不在歌单元素内且歌单是显示状态，则隐藏歌单
+                if (!playlistElement.contains(event.target) && playlistElement.classList.contains('show-playlist') && !guanyuzuozheButton.contains(event.target)) {
+                    playlistElement.classList.remove('show-playlist');
+                }
+            });
+
+            // 点击歌单中的歌曲名时切换歌曲并关闭歌单
+            playlistElement.addEventListener('click', function (event) {
+                if (event.target.classList.contains('playlist-item')) {
+                    const songFile = event.target.getAttribute('data-file'); // 获取歌曲文件路径
+                    const songLyrics = event.target.getAttribute('data-lyrics'); // 获取歌曲歌词
+                    audio.src = songFile; // 切换歌曲
+                    audio.play(); // 播放音乐
+                    avatar.style.animation = 'rotate 10s infinite linear'; // 开始旋转动画
+                    textToShowElement.innerHTML = songLyrics; // 显示歌词
+                    textToShowElement.style.display = 'block'; // 显示歌词区域
+
+                    // 添加点击反馈效果
+                    event.target.style.transform = 'scale(0.95)'; // 点击缩小效果
+                    setTimeout(() => {
+                        event.target.style.transform = ''; // 恢复原始状态
+                    }, 200); // 200毫秒后恢复
+
+                    // 关闭歌单窗口
+                    playlistElement.classList.remove('show-playlist');
+                }
+            });
+
+
         });
-    }
-
-    // 点击头像事件处理
-    avatar.addEventListener('click', function () {
-        if (audio.paused) {
-            audio.play();
-            audio.addEventListener('timeupdate', updateLyrics);
-            textToShowElement.style.display = 'block';  // 显示歌词区域
-            avatar.style.animation = 'rotate 10s infinite linear'; // 开始旋转
-            isRotating = true;
-
-            // 切换按钮文本
-            gecizhanshiButton.innerText = "歌词"; // 恢复“歌词展示”按钮
-            guanyuzuozheButton.innerText = "歌单"; // 切换“关于作者”按钮为“歌单列表”
-        } else {
-            audio.pause();
-            audio.removeEventListener('timeupdate', updateLyrics);
-            textToShowElement.innerHTML = ''; // 清空歌词内容
-            textToShowElement.style.display = 'none'; // 隐藏歌词区域
-            avatar.style.animation = 'none'; // 停止旋转
-            isRotating = false;
-        }
-    });
-
-    function updateLyrics() {
-        updateLyricsDisplay(audio.currentTime);
-    }
-
-    // 歌词展示按钮/玩法按钮
-    gecizhanshiButton.addEventListener('click', function () {
-        moveCards();
-        if (!audio.paused) {
-            isShowingPlaylist = false; // 确保显示歌词时不显示歌单
-            textToShowElement.style.display = 'block';
-            updateLyricsDisplay(audio.currentTime);
-        } else {
-            textToShowElement.innerHTML = hintText; // 当音乐未播放时，显示提示文本
-            textToShowElement.style.display = 'block'; // 确保文本区域可见
-            gecizhanshiButton.innerText = "朋友"; // 切换按钮为“玩法按钮”
-        }
-    });
-
-    // 关于作者按钮（切换为歌单列表按钮）
-    guanyuzuozheButton.addEventListener('click', function () {
-        if (!audio.paused) {
-            isShowingPlaylist = true; // 标记为正在显示歌单列表
-            textToShowElement.innerHTML = playlistText; // 显示歌单列表
-            textToShowElement.style.display = 'block';
-        } else {
-            moveCards();
-            textToShowElement.innerHTML = aboutText; // 显示关于作者信息
-            textToShowElement.style.display = 'block';
-            guanyuzuozheButton.innerText = "你好"; // 恢复按钮为“关于作者”
-        }
-    });
-});
-
-</script>
+    </script>
 </body>
 
 </html>
